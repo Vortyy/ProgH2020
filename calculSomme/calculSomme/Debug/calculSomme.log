@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Etienne\Documents\École\Cégep - Hiver 2020\Programmation orienté objet\calculSomme\calculSomme\main.cpp(20,1): warning C4326: le type de retour de 'main' doit être 'int' au lieu de 'void'
+  calculSomme.vcxproj -> C:\Users\Etienne\Documents\École\Cégep - Hiver 2020\Programmation orienté objet\calculSomme\Debug\calculSomme.exe
