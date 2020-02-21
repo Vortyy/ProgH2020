@@ -22,20 +22,20 @@ private:
 public:
 	Date();
 	Date(int jour, int mois, int annee);
-
 	~Date(); //prototype du destructeur
 
 	int getJour()const; //prototype du getteur
 	int getMois()const;
 	int getAnnee()const;
-	Date getDate();
+	Date getDate()const;
 
 	void setJour(int jour); //prototype du setteur
 	void setMois(int mois);
 	void setAnnee(int annee);
 	void setDate(int jour, int mois, int annee);
 	void setToday();
+	
+	void print(ostream& output)const;
 };
 
-void entrerNaissance(Date& dateNaissance, Date dateJour);
-void printDate(Date date, ostream& output);
+

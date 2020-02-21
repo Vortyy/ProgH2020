@@ -8,6 +8,7 @@
 #include "Date.h"
 #include "Header.h"
 
+void entrerNaissance(Date& dateNaissance, Date dateJour);
 int calcAge(Date dateNaissance, Date dateJour);
 
 void main() {
@@ -16,7 +17,7 @@ void main() {
 
 	dateJour.setToday();
 	cout << "Bonjour, aujourd'hui nous sommes le ";
-	printDate(dateJour, cout);
+	dateJour.print(cout);
 	cout << endl << endl;
 
 	entrerNaissance(dateNaissance, dateJour);
@@ -32,6 +33,42 @@ void main() {
 	system("pause");
 }
 
+// Rentre la date de naissance de l'utilisateur et loop en cas d'erreur
+void entrerNaissance(Date& dateNaissance, Date dateJour) {
+	int jour, mois, annee;
+
+	bool inputCorrect;
+	do {
+		inputCorrect = true;
+		cout << "Entrer votre date de naissance (jj mm aaaa) : ";
+		cin >> jour >> mois >> annee;
+
+		if (cin.fail()) {
+			cout << "La date doit avoir des valeurs numeriques" << endl << endl;
+			inputCorrect = false;
+		}
+
+		if (jour < 1 || jour > 31) {
+			cout << "Le jour doit etre compris entre 1 et 31" << endl << endl;
+			inputCorrect = false;
+		}
+
+		if (mois < 1 || mois > 12) {
+			cout << "Le mois doit etre compris entre 1 et 12" << endl << endl;
+			inputCorrect = false;
+		}
+
+		if (annee < 1900 || annee > dateJour.getAnnee()) {
+			cout << "L'annee doit etre compris entre 1900 et " << dateJour.getAnnee() << endl << endl;
+			inputCorrect = false;
+		}
+
+		viderBuffer();
+
+	} while (!inputCorrect);
+
+	dateNaissance.setDate(jour, mois, annee);
+}
 // calcule l'age de l'utilisteur
 int calcAge(Date dateNaissance, Date dateJour) {
 	int age = dateJour.getAnnee() - dateNaissance.getAnnee();

@@ -7,9 +7,7 @@ Date::Date() {
 }
 //constructeur avec paramètres
 Date::Date(int jour, int mois, int annee) {
-	_jour = jour;
-	_mois = mois;
-	_annee = annee;
+	setDate(jour, mois, annee);
 }
 
 //définition du destructeur qui reset (nettoie) le contenu des propriétés
@@ -35,7 +33,7 @@ int Date::getAnnee()const {
 }
 
 //get les 3 paramètres
-Date Date::getDate() {
+Date Date::getDate() const{
 	return *this; //this est un pointeur vers l’objet, *this est l’objet
 }
 
@@ -59,14 +57,9 @@ void Date::setAnnee(int annee) {
 
 // setter les 3 paramètres en même temps
 void Date::setDate(int jour, int mois, int annee) {
-	assert(jour >= 1 && jour <= 31); //robustesse avec <cassert>
-	_jour = jour;
-
-	assert(mois >= 1 && mois <= 12); //robustesse avec <cassert>
-	_mois = mois;
-
-	assert(annee >= 1900); //robustesse avec <cassert>
-	_annee = annee;
+	setJour(jour);
+	setMois(mois);
+	setAnnee(annee);
 }
 
 // génère un objet avec la date d'aujourd'hui
@@ -81,43 +74,6 @@ void Date::setToday() {
 }
 
 // print la date en format "jj/mm/aaaa"
-void printDate(Date date, ostream& output) {
-	output << date.getJour() << "/" << date.getMois() << "/" << date.getAnnee();
-}
-
-// Rentre la date de naissance de l'utilisateur et loop en cas d'erreur
-void entrerNaissance(Date& dateNaissance, Date dateJour) {
-	int jour, mois, annee;
-
-	bool inputCorrect;
-	do {
-		inputCorrect = true;
-		cout << "Entrer votre date de naissance (jj mm aaaa) : ";
-		cin >> jour >> mois >> annee;
-
-		if (cin.fail()) {
-			cout << "La date doit avoir des valeurs numeriques" << endl << endl;
-			inputCorrect = false;
-		}
-
-		if (jour < 1 || jour > 31) {
-			cout << "Le jour doit etre compris entre 1 et 31" << endl << endl;
-			inputCorrect = false;
-		}
-
-		if (mois < 1 || mois > 12) {
-			cout << "Le mois doit etre compris entre 1 et 12" << endl << endl;
-			inputCorrect = false;
-		}
-
-		if (annee < 1900 || annee > dateJour.getAnnee()) {
-			cout << "L'annee doit etre compris entre 1900 et " << dateJour.getAnnee() << endl << endl;
-			inputCorrect = false;
-		}
-
-		viderBuffer();
-
-	} while (!inputCorrect);
-
-	dateNaissance.setDate(jour, mois, annee);
+void Date::print(ostream& output) const{
+	output << setw(2) << setfill('0') << _jour << "/" << setw(2) << setfill('0') << _mois << "/" << _annee;
 }
