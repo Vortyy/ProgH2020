@@ -56,10 +56,10 @@ bool Point::operator==(const Point& p)const {
 
 // surcharge de l'opérateur !=
 bool Point::operator!=(const Point& p)const {
-    if (_x != p._x && _y != p._y)
-        return true;
-    else
+    if (_x == p._x && _y == p._y)
         return false;
+    else
+        return true;
 }
 
 // Retourne la coordonnée x
@@ -101,6 +101,7 @@ void Point::print(ostream& output)const {
     output << "(" << _x << "," << _y << ")";
 }
 
+// Mets un charactere à la coordonnée entrée
 void Point::draw(ostream& output)const {
     gotoxy(_x, _y);
     cout << "\xFE"; //on dessine un petit carré

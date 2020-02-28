@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{8A2CA872-8AE1-4EAD-9ACA-B9A5A24B15AE}</ProjectGuid>
-    <RootNamespace>Lab5</RootNamespace>
+    <ProjectGuid>{CBEBDD94-1CF1-48DC-8D81-593986DC1402}</ProjectGuid>
+    <RootNamespace>ExerciceObjets</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,14 +139,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mainRectangle.cpp" />
-    <ClCompile Include="mainPoint.cpp" />
-    <ClCompile Include="point.cpp" />
-    <ClCompile Include="rectangle.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="point.h" />
-    <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
